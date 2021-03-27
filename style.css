@@ -1,0 +1,33 @@
+:root {
+    --status-indicator-size: 50px;
+    --status-indicator-animation-duration: 2s;
+    --status-indicator-color: rgb(216, 226, 233);
+    --status-indicator-color-semi: rgba(216, 226, 233, .5);
+    --status-indicator-color-transparent: rgba(216, 226, 233, 0);
+}
+
+@keyframes status-indicator-pulse {
+    0%   { box-shadow: 0 0 0 0 var(--status-indicator-color-semi); }
+    70%  { box-shadow: 0 0 0 var(--status-indicator-size) var(--status-indicator-color-transparent); }
+    100% { box-shadow: 0 0 0 0 var(--status-indicator-color-transparent); }
+  }
+
+
+.status-indicator {
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+    width: var(--status-indicator-size);
+    height: var(--status-indicator-size);
+    background-color: var(--status-indicator-color);
+  }
+  
+  .status-indicator.pulse {
+    animation-name: status-indicator-pulse;
+      animation-duration: var(--status-indicator-animation-duration);
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-delay: 0;
+      animation-fill-mode: none;
+  }
